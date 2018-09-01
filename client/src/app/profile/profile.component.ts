@@ -11,6 +11,10 @@ import { Angular2TokenService } from 'angular2-token';
 })
 export class ProfileComponent implements OnInit {
 
+  public name = "poo";
+  public email;
+  public username;
+
   constructor(
               public authTokenService: Angular2TokenService,
               public authService: AuthService,
@@ -18,6 +22,21 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.name = this.getName();
+    // this.email = this.getEmail();
+    // this.username = this.getUsername();
+  }
+
+  getName() {
+    return this.authTokenService.currentUserData.name;
+  }
+
+  getEmail() {
+    return this.authTokenService.currentUserData.email;
+  }
+
+  getUsername() {
+    return this.authTokenService.currentUserData.nickname;
   }
 
   logOut() {

@@ -7,11 +7,14 @@
             <i class="fa fa-user-circle-o blue-grey-text darken-2" style="font-size: 8em" aria-hidden="true"></i>
           </div>
           <div *ngIf="authTokenService.currentUserData" class="col l8 s12">
-            <ul class="collection grey-text text-darken-2">
-              <li class="collection-item">Email: <b>{{authTokenService.currentUserData.email}}</b></li>
-              <li class="collection-item">Name: <b>{{authTokenService.currentUserData.name}}</b></li>
-              <li class="collection-item">Username: <b>@{{authTokenService.currentUserData.nickname}}</b></li>
-            </ul>
+            <form #form="ngForm">
+              <ul class="collection grey-text text-darken-2">
+                <li class="collection-item"><label for="email">Email: </label><input type="text" [(ngModel)]="email" required name="email">{{email}}</li>
+                <li class="collection-item"><label>Name: </label><input type="text" [(ngModel)]="name">{{name}}</li>
+                <li class="collection-item"><label for="username">Username: </label><input type="text" [(ngModel)]="username" ></li>
+              </ul>
+              <button class="btn btn-primary" (click)="submit">Edit</button>
+            </form>
           </div>
         </div>
       </div>
